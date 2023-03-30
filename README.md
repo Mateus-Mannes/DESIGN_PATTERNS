@@ -1,9 +1,11 @@
 # STRATEGY
 
 ```mermaid
-subgraph INTERFACE
-        method
-    end
+flowchart LR
+
+        subgraph INTERFACE
+                method
+        end
     subgraph CONCRETE_CLASS1
         method_implementation1
     end
