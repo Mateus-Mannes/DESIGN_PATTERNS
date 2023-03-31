@@ -71,3 +71,38 @@ classDiagram
     AbstractClass <|-- ConcreteClassB
 
 ```
+
+# DECORATOR
+
+The Decorator Design Pattern is a structural design pattern that allows you to add new functionality to an existing object without altering its structure. This pattern involves a set of decorator classes that are used to wrap concrete components. Decorator classes mirror the type of the components they are decorating but add or override behavior.
+
+```mermaid
+
+classDiagram
+    class Client
+    class Component {
+        +operation()
+    }
+    class ConcreteComponent {
+        +operation()
+    }
+    class Decorator {
+        -component: Component
+        +operation()
+    }
+    class ConcreteDecoratorA {
+        +operation()
+        +addedBehavior()
+    }
+    class ConcreteDecoratorB {
+        +operation()
+    }
+    Client --> Component
+    Component <|-- ConcreteComponent
+    Component <|-- Decorator
+    Decorator o-- Component
+    Decorator <|-- ConcreteDecoratorA
+    Decorator <|-- ConcreteDecoratorB
+
+
+```
