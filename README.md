@@ -173,4 +173,38 @@ classDiagram
 
 ```
 
+# OBSERVER
 
+The Observer Design Pattern is a behavioral design pattern that defines a one-to-many dependency between objects so that when one object (the Subject) changes its state, all its dependents (the Observers) are notified and updated automatically. This pattern promotes loose coupling between the Subject and the Observers.
+
+```mermaid
+classDiagram
+    class Client
+    class Subject {
+        +attach(Observer)
+        +detach(Observer)
+        +notify()
+    }
+    class ConcreteSubject {
+        +getState(): State
+        +setState(State)
+        -state: State
+    }
+    class Observer {
+        +update()
+    }
+    class ConcreteObserverA {
+        +update()
+        -subject: ConcreteSubject
+    }
+    class ConcreteObserverB {
+        +update()
+        -subject: ConcreteSubject
+    }
+    Client --> Subject
+    Client --> Observer
+    Subject <|-- ConcreteSubject
+    Observer <|-- ConcreteObserverA
+    Observer <|-- ConcreteObserverB
+    ConcreteSubject "1" o-- "*" Observer: observers
+```
