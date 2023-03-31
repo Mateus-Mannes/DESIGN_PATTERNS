@@ -44,3 +44,30 @@ classDiagram
     Handler <|-- ConcreteHandlerA
     Handler <|-- ConcreteHandlerB
 ```
+
+# TEMPLATE METHOD
+
+The Template Method Design Pattern is a behavioral design pattern that defines the skeleton of an algorithm in an operation, deferring some steps to subclasses. The pattern allows subclasses to redefine certain steps of an algorithm without changing the overall structure and sequence of the algorithm.
+
+
+```mermaid
+classDiagram
+    class Client
+    class AbstractClass {
+        +templateMethod()
+        +primitiveOperation1()
+        +primitiveOperation2()
+    }
+    class ConcreteClassA {
+        +primitiveOperation1()
+        +primitiveOperation2()
+    }
+    class ConcreteClassB {
+        +primitiveOperation1()
+        +primitiveOperation2()
+    }
+    Client --> AbstractClass
+    AbstractClass <|-- ConcreteClassA
+    AbstractClass <|-- ConcreteClassB
+
+```
