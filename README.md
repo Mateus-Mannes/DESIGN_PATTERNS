@@ -241,3 +241,24 @@ classDiagram
     Product <|-- ConcreteProductA
     Product <|-- ConcreteProductB
 ```
+
+# FLYWEIGHT
+
+```mermaid
+classDiagram
+    class Client
+    class FlyweightFactory {
+        +getFlyweight(key): Flyweight
+        -flyweights: Map
+    }
+    class Flyweight {
+        +operation(extrinsicState)
+    }
+    class ConcreteFlyweight {
+        +operation(extrinsicState)
+        -intrinsicState
+    }
+    Client --> FlyweightFactory
+    FlyweightFactory o-- Flyweight: flyweights
+    Flyweight <|-- ConcreteFlyweight
+```
