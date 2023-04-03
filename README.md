@@ -244,6 +244,8 @@ classDiagram
 
 # FLYWEIGHT
 
+The Flyweight Design Pattern is a structural design pattern that aims to reduce the memory usage and improve the performance of a system by minimizing the number of objects created and reusing existing objects instead. This pattern is particularly useful when dealing with a large number of objects that share common properties.
+
 ```mermaid
 classDiagram
     class Client
