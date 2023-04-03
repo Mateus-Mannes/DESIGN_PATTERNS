@@ -208,3 +208,36 @@ classDiagram
     Observer <|-- ConcreteObserverB
     ConcreteSubject "1" o-- "*" Observer: observers
 ```
+
+# FACTORY METHOD
+
+The Factory Method Design Pattern is a creational design pattern that provides an interface (or abstract class) for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created. This pattern promotes loose coupling between the creator and the concrete products.
+
+```mermaid
+classDiagram
+    class Client
+    class Creator {
+        +factoryMethod(): Product
+    }
+    class ConcreteCreatorA {
+        +factoryMethod(): Product
+    }
+    class ConcreteCreatorB {
+        +factoryMethod(): Product
+    }
+    class Product {
+        +operation()
+    }
+    class ConcreteProductA {
+        +operation()
+    }
+    class ConcreteProductB {
+        +operation()
+    }
+    Client --> Creator
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
+    Creator ..> Product
+    Product <|-- ConcreteProductA
+    Product <|-- ConcreteProductB
+```
