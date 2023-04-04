@@ -264,3 +264,32 @@ classDiagram
     FlyweightFactory o-- Flyweight: flyweights
     Flyweight <|-- ConcreteFlyweight
 ```
+
+# MEMENTO
+
+The Memento Design Pattern is a behavioral design pattern that provides the ability to restore an object to its previous state. The pattern is particularly useful when you need to implement undo or rollback functionality for an object without exposing its internal state or violating encapsulation.
+
+```mermaid
+classDiagram
+    class Client
+    class Originator {
+        +setMemento(Memento)
+        +createMemento(): Memento
+        +restoreMemento(Memento)
+        -state: State
+    }
+    class Memento {
+        +getState(): State
+        -state: State
+    }
+    class Caretaker {
+        +saveState()
+        +restoreState()
+        -mementos: List
+        -originator: Originator
+    }
+    Client --> Originator
+    Client --> Caretaker
+    Caretaker --> Memento
+    Originator --> Memento
+```
