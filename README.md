@@ -293,3 +293,27 @@ classDiagram
     Caretaker --> Memento
     Originator --> Memento
 ```
+
+# INTERPRETER
+
+The Interpreter Design Pattern is a behavioral design pattern that provides a way to define a grammar for a simple language and interpret sentences in that language. The pattern is used to represent the grammar as an abstract syntax tree (AST) and interpret the AST to perform some operation or computation.
+
+```mermaid
+classDiagram
+    class Client
+    class Context
+    class AbstractExpression {
+        +interpret(context: Context)
+    }
+    class TerminalExpression {
+        +interpret(context: Context)
+    }
+    class NonterminalExpression {
+        +interpret(context: Context)
+        -expressions: List
+    }
+    Client --> Context
+    Client --> AbstractExpression
+    AbstractExpression <|-- TerminalExpression
+    AbstractExpression <|-- NonterminalExpression
+```
