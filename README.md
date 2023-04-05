@@ -356,3 +356,33 @@ classDiagram
     Visitor <|-- ConcreteVisitor2
     Element --> Visitor
 ```
+
+# BRIDGE
+
+The Bridge Design Pattern is a structural design pattern that decouples an abstraction from its implementation so that the two can vary independently. This pattern promotes flexibility and separation of concerns by splitting a complex system into two orthogonal hierarchies: one for the abstractions and another for the implementations.
+
+```mermaid
+classDiagram
+    class Client
+    class Abstraction {
+        +operation()
+        -implementation: Implementor
+    }
+    class RefinedAbstraction {
+        +operation()
+    }
+    class Implementor {
+        +operationImpl()
+    }
+    class ConcreteImplementorA {
+        +operationImpl()
+    }
+    class ConcreteImplementorB {
+        +operationImpl()
+    }
+    Client --> Abstraction
+    Abstraction <|-- RefinedAbstraction
+    Abstraction --> Implementor
+    Implementor <|-- ConcreteImplementorA
+    Implementor <|-- ConcreteImplementorB
+```
