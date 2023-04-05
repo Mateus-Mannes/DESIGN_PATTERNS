@@ -317,3 +317,42 @@ classDiagram
     AbstractExpression <|-- TerminalExpression
     AbstractExpression <|-- NonterminalExpression
 ```
+
+# VISITOR
+
+The Visitor Design Pattern is a behavioral design pattern that allows you to define a new operation without changing the classes of the elements on which it operates. The pattern separates the operation from the object structure and allows you to add new operations without modifying the existing classes.
+
+```mermaid
+classDiagram
+    class Client
+    class Element {
+        +accept(visitor: Visitor)
+    }
+    class ConcreteElementA {
+        +accept(visitor: Visitor)
+        +operationA()
+    }
+    class ConcreteElementB {
+        +accept(visitor: Visitor)
+        +operationB()
+    }
+    class Visitor {
+        +visitConcreteElementA(element: ConcreteElementA)
+        +visitConcreteElementB(element: ConcreteElementB)
+    }
+    class ConcreteVisitor1 {
+        +visitConcreteElementA(element: ConcreteElementA)
+        +visitConcreteElementB(element: ConcreteElementB)
+    }
+    class ConcreteVisitor2 {
+        +visitConcreteElementA(element: ConcreteElementA)
+        +visitConcreteElementB(element: ConcreteElementB)
+    }
+    Client --> Element
+    Element <|-- ConcreteElementA
+    Element <|-- ConcreteElementB
+    Client --> Visitor
+    Visitor <|-- ConcreteVisitor1
+    Visitor <|-- ConcreteVisitor2
+    Element --> Visitor
+```
