@@ -386,3 +386,36 @@ classDiagram
     Implementor <|-- ConcreteImplementorA
     Implementor <|-- ConcreteImplementorB
 ```
+
+# COMMAND
+
+```mermaid
+classDiagram
+    class Client
+    class Invoker {
+        +storeAndExecute(command: Command)
+        -commands: List
+    }
+    class Command {
+        +execute()
+    }
+    class ConcreteCommandA {
+        +execute()
+        -receiver: Receiver
+    }
+    class ConcreteCommandB {
+        +execute()
+        -receiver: Receiver
+    }
+    class Receiver {
+        +actionA()
+        +actionB()
+    }
+    Client --> Invoker
+    Client --> Command
+    Command <|-- ConcreteCommandA
+    Command <|-- ConcreteCommandB
+    Invoker --> Command
+    ConcreteCommandA --> Receiver
+    ConcreteCommandB --> Receiver
+```
