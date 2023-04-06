@@ -389,6 +389,8 @@ classDiagram
 
 # COMMAND
 
+The Command Design Pattern is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This pattern allows you to decouple the objects that send the request from the objects that perform the request, enabling greater flexibility and extensibility.
+
 ```mermaid
 classDiagram
     class Client
@@ -418,4 +420,26 @@ classDiagram
     Invoker --> Command
     ConcreteCommandA --> Receiver
     ConcreteCommandB --> Receiver
+```
+
+# ADAPTER
+
+The Adapter Design Pattern is a structural design pattern that allows objects with incompatible interfaces to work together. This pattern is used to convert the interface of one class (the Adaptee) into another interface (the Target) that the Client expects. The Adapter acts as a bridge between the two interfaces, allowing the Client to use the Adaptee without modifying the existing code.
+
+```mermaid
+classDiagram
+    class Client
+    class Target {
+        +request()
+    }
+    class Adapter {
+        +request()
+        -adaptee: Adaptee
+    }
+    class Adaptee {
+        +specificRequest()
+    }
+    Client --> Target
+    Target <|-- Adapter
+    Adapter --> Adaptee
 ```
