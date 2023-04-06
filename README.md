@@ -443,3 +443,50 @@ classDiagram
     Target <|-- Adapter
     Adapter --> Adaptee
 ```
+
+#FACADE
+
+The Facade Design Pattern is a structural design pattern that provides a simplified interface to a larger body of code, such as a class library, a framework, or a complex subsystem. This pattern is used to hide the complexities of the subsystem from the Client and provide a single, unified interface for interacting with the subsystem.
+
+```mermaid
+
+classDiagram
+    class Client
+    class Facade {
+        +operationA()
+        +operationB()
+        -subsystemA: SubsystemA
+        -subsystemB: SubsystemB
+        -subsystemC: SubsystemC
+    }
+    class SubsystemA {
+        +methodA()
+    }
+    class SubsystemB {
+        +methodB()
+    }
+    class SubsystemC {
+        +methodC()
+    }
+    Client --> Facade
+    Facade --> SubsystemA
+    Facade --> SubsystemB
+    Facade --> SubsystemC
+    
+   ```
+   
+# SINGLETON
+   
+The Singleton Design Pattern is a creational design pattern that ensures a class has only one instance and provides a global point of access to that instance. This pattern is used when you want to guarantee that only one instance of a class is created and that this instance is easily accessible throughout your application.
+   
+   ```mermaid
+   classDiagram
+    class Client
+    class Singleton {
+        -instance: Singleton
+        -Singleton()
+        +getInstance(): Singleton
+        +someOperation()
+    }
+    Client --> Singleton
+   ```
